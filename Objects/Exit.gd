@@ -27,8 +27,10 @@ func open_door():
 	$LockFadeOut.start(.1)
 	yield($LockFadeOut, "timeout")
 	Door.region_rect = Rect2(135,586,50,49)
+	$LockFadeOut.start(.25)
+	yield($LockFadeOut, "timeout")
 	switch_to_next_level()
 
 func switch_to_next_level():
 	
-	get_tree().change_scene("res://Level2.tscn")
+	get_tree().change_scene("res://Levels/Level2.tscn")

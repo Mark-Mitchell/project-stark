@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://TilemapEdit1.png" type="Texture" id=1]
-[ext_resource path="res://Exit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Pictures/TilemapEdit1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Exit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/FillerChar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 15.1084, 0, 23.1837, 0, 23.1557, 32.8572, 15.0804, 32.6329 )
@@ -164,7 +165,6 @@ tile_data = PoolIntArray( 131077, 0, 0, 131078, 0, 131076, 131079, 0, 131076, 13
 [node name="Exit" parent="." instance=ExtResource( 2 )]
 position = Vector2( 280, 267 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 279, 267 )
-current = true
-zoom = Vector2( 0.5, 0.5 )
+[node name="FillerChar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 491, 153 )
+scale = Vector2( 0.5, 0.5 )
