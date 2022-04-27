@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://TilemapEdit1.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
@@ -48,7 +48,6 @@ points = PoolVector2Array( 0, 19.4398, 15.4169, 19.3277, 15.4169, 0, 23.5482, 0,
 
 [sub_resource type="TileSet" id=1]
 0/name = "Wall"
-0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 480, 384 )
@@ -160,6 +159,8 @@ points = PoolVector2Array( 0, 19.4398, 15.4169, 19.3277, 15.4169, 0, 23.5482, 0,
 position = Vector2( -3, -30 )
 script = ExtResource( 1 )
 
+[node name="Level2" parent="." instance=ExtResource( 2 )]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
@@ -168,3 +169,4 @@ tile_data = PoolIntArray( 131077, 0, 0, 131078, 0, 131076, 131079, 0, 2, 131091,
 
 [node name="SkeletalPlayer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 505, 212 )
+scale = Vector2( 0.530643, 0.530643 )
