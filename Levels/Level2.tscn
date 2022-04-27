@@ -165,11 +165,6 @@ tile_data = PoolIntArray( 131077, 0, 0, 131078, 0, 131076, 131079, 0, 131076, 13
 [node name="Exit" parent="." instance=ExtResource( 3 )]
 position = Vector2( 336, 275 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 337, 273 )
-current = true
-zoom = Vector2( 0.5, 0.5 )
-
 [node name="Key" parent="." instance=ExtResource( 2 )]
 position = Vector2( 719, 273 )
 scale = Vector2( 0.342593, 0.342593 )

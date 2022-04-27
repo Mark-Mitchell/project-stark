@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity = Vector2.ZERO
 var speed = Vector2(200,200)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_up"):
 		velocity.x = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")) * speed.x
 		velocity.y = (Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")) * speed.y

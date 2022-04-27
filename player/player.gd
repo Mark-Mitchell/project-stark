@@ -35,3 +35,13 @@ func _physics_process(delta):
 		sprite.transform.x = Vector2(sprite_scale, 0)
 	elif velocity.x < 0:
 		sprite.transform.x = Vector2(-sprite_scale, 0)
+
+
+func _on_CheckForDoor_body_entered(body):
+	if body.is_in_group("exit"):
+		AL.teleport_available = true
+
+
+func _on_CheckForDoor_body_exited(body):
+	if body.is_in_group("exit"):
+		AL.teleport_available = false
