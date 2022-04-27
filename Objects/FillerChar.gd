@@ -11,5 +11,10 @@ func _physics_process(delta):
 
 
 func _on_Area2D_body_entered(close_body):
-	close_body.is_in_group("exit")
-	
+	if close_body.is_in_group("exit"):
+		AL.teleport_available = true
+
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("exit"):
+		AL.teleport_available = false

@@ -9,18 +9,18 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		print("working")
 		op_en()
 
 func op_en():
 	fade_lock()
 
 func fade_lock():
-	for x in range(1,6):
-		lock.set_modulate(lerp(get_modulate(), Color(1,1,1,0), 0.2*x))
-		$LockFadeOut.start()
-		yield($LockFadeOut, "timeout")
-	open_door()
+	if AL.teleport_available:
+		for x in range(1,6):
+			lock.set_modulate(lerp(get_modulate(), Color(1,1,1,0), 0.2*x))
+			$LockFadeOut.start()
+			yield($LockFadeOut, "timeout")
+		open_door()
 
 func open_door():
 	Door.region_rect = Rect2(75,589,45,37)
@@ -32,5 +32,4 @@ func open_door():
 	switch_to_next_level()
 
 func switch_to_next_level():
-	
 	get_tree().change_scene("res://Levels/Level2.tscn")
