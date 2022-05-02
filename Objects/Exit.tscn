@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 [node name="Door" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 135, 586, 50, 49 )
+region_rect = Rect2( 9, 594, 50, 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 10 )

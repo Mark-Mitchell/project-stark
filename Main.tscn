@@ -11,5 +11,5 @@ script = ExtResource( 1 )
 [node name="Level2" parent="." instance=ExtResource( 2 )]
 
 [node name="SkeletalPlayer" parent="." instance=ExtResource( 3 )]
-position = Vector2( 505, 212 )
+position = Vector2( 416, 180 )
 scale = Vector2( 0.530643, 0.530643 )
