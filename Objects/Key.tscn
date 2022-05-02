@@ -6,11 +6,11 @@
 extents = Vector2( 200.5, 283 )
 
 [node name="Key" type="Sprite"]
-scale = Vector2( 0.185714, 0.185714 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 415.32, 440.548, 40.2966, 45.4409 )
 
 [node name="Collectable" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable"]
+position = Vector2( 0.5, 0 )
 shape = SubResource( 1 )
