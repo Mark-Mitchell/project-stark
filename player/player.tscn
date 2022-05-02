@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/gBot.png" type="Texture" id=2]
@@ -1560,6 +1560,9 @@ node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 8, 4.7179 )
 
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 10, 24 )
+
 [sub_resource type="CircleShape2D" id=25]
 radius = 106.118
 
@@ -1755,11 +1758,19 @@ position = Vector2( 0, -32 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
 
+[node name="CheckForRock" type="Area2D" parent="." groups=["playercheck"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckForRock"]
+position = Vector2( 0, -23 )
+shape = SubResource( 26 )
+
 [node name="CheckForDoor" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckForDoor"]
 position = Vector2( 0, -15 )
 shape = SubResource( 25 )
 
+[connection signal="body_entered" from="CheckForRock" to="." method="_on_CheckForDoor_body_entered"]
+[connection signal="body_exited" from="CheckForRock" to="." method="_on_CheckForDoor_body_exited"]
 [connection signal="body_entered" from="CheckForDoor" to="." method="_on_CheckForDoor_body_entered"]
 [connection signal="body_exited" from="CheckForDoor" to="." method="_on_CheckForDoor_body_exited"]
