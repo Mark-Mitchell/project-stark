@@ -17,13 +17,13 @@ func _physics_process(delta):
 	velocity.y = (Input.get_action_strength("move_down") - Input.get_action_strength("move_up")) * speed.y
 
 	if Input.is_action_pressed("move_left"):
-		velocity.x *= 0.5
+		velocity.x *= 0.3
 	if Input.is_action_pressed("move_right"):
-		velocity.x *= 0.5
+		velocity.x *= 0.3
 	if Input.is_action_pressed("move_up"):
-		velocity.y *= 0.5
+		velocity.y *= 0.3
 	if Input.is_action_pressed("move_down"):
-		velocity.y *= 0.5
+		velocity.y *= 0.3
 		
 	if (abs(velocity.x) > 50) or (abs(velocity.y) > 50):
 		$AnimationPlayer.play("run")
