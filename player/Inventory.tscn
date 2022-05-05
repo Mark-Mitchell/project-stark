@@ -1,13 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://player/Counter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/KeyCount.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/Timer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/StoneCount.tscn" type="PackedScene" id=3]
 
-[node name="Inventory" type="Control"]
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Inventory" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Counter" parent="." instance=ExtResource( 1 )]
-margin_left = 866.0
-margin_top = 6.0
-margin_right = 1017.0
-margin_bottom = 70.0
+[node name="KeyCounter" parent="Inventory" instance=ExtResource( 1 )]
+margin_left = 871.0
+margin_top = 136.0
+margin_right = 1022.0
+margin_bottom = 200.0
+
+[node name="StoneCounter" parent="Inventory" instance=ExtResource( 3 )]
+margin_left = 868.0
+margin_top = 69.0
+margin_right = 1019.0
+margin_bottom = 133.0
+
+[node name="Timer" parent="Inventory" instance=ExtResource( 2 )]
+margin_left = 823.0
+margin_top = 2.0
+margin_right = 1020.0
+margin_bottom = 66.0
+
+[node name="Node" type="Node" parent="Inventory"]

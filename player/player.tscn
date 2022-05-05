@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/gBot.png" type="Texture" id=2]
+[ext_resource path="res://player/Inventory.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 loop = true
@@ -1555,7 +1556,7 @@ nodes/walk_animation/node = SubResource( 21 )
 nodes/walk_animation/position = Vector2( 0, 140 )
 nodes/walk_timescale/node = SubResource( 22 )
 nodes/walk_timescale/position = Vector2( 200, 120 )
-node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", "state", 3, "fly_animation", "state", 4, "fall_animation", "output", 0, "land_hard", "land", 0, "jump", "land", 1, "land_animation", "land_hard", 0, "land", "land_hard", 1, "land_hard_animation", "walk_timescale", 0, "walk_animation", "run_timescale", 0, "run_animation", "jump", 0, "state", "jump", 1, "jump_animation" ]
+node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", "state", 3, "fly_animation", "state", 4, "fall_animation", "output", 0, "land_hard", "land", 0, "jump", "land", 1, "land_animation", "jump", 0, "state", "jump", 1, "jump_animation", "land_hard", 0, "land", "land_hard", 1, "land_hard_animation", "run_timescale", 0, "run_animation", "walk_timescale", 0, "walk_animation" ]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 8, 4.7179 )
@@ -1571,6 +1572,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 379.019 ]
 }
+
+[node name="Inventory" parent="." instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fall = SubResource( 1 )
