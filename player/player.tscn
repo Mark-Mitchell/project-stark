@@ -1565,9 +1565,9 @@ extents = Vector2( 8, 4.7179 )
 extents = Vector2( 10, 24 )
 
 [sub_resource type="CircleShape2D" id=25]
-radius = 106.118
+radius = 62.0
 
-[node name="SkeletalPlayer" type="KinematicBody2D"]
+[node name="SkeletalPlayer" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 379.019 ]
