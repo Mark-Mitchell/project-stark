@@ -23,6 +23,7 @@ func fade_lock():
 		open_door()
 
 func open_door():
+	AL.keycount -= 1
 	Door.region_rect = Rect2(75,589,45,37)
 	$LockFadeOut.start(.1)
 	yield($LockFadeOut, "timeout")
@@ -32,4 +33,4 @@ func open_door():
 	switch_to_next_level()
 
 func switch_to_next_level():
-	get_tree().change_scene("res://Levels/Level2.tscn")
+	AL.change_to_next_level()

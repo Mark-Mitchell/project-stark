@@ -17,7 +17,6 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable"]
 position = Vector2( 0, -10 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [connection signal="area_entered" from="Collectable" to="." method="_on_Collectable_area_entered"]

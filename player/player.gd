@@ -11,7 +11,8 @@ onready var sprite_scaleY = sprite.scale.y
 func _ready():
 	$AnimationTree.active = true
 
-func _physics_process(delta):
+func _physics_process(_delta):
+	AL.playerpos = global_position
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left")) * speed.x
 	velocity.y = (Input.get_action_strength("move_down") - Input.get_action_strength("move_up")) * speed.y
@@ -40,6 +41,7 @@ func _physics_process(delta):
 		sprite.transform.x = Vector2(sprite_scale, 0)
 	elif velocity.x < 0:
 		sprite.transform.x = Vector2(-sprite_scale, 0)
+	
 
 
 func _on_CheckForDoor_body_entered(body):

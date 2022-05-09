@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Pictures/TilemapEdit1.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Exit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Key.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 15.1084, 0, 23.1837, 0, 23.1557, 32.8572, 15.0804, 32.6329 )
@@ -163,3 +165,9 @@ tile_data = PoolIntArray( 131077, 0, 0, 131078, 0, 131076, 131079, 0, 131076, 13
 
 [node name="Exit" parent="." instance=ExtResource( 2 )]
 position = Vector2( 280, 267 )
+
+[node name="SkeletalPlayer" parent="." instance=ExtResource( 4 )]
+position = Vector2( 521, 172 )
+
+[node name="Key" parent="." instance=ExtResource( 3 )]
+position = Vector2( 328, 187 )
