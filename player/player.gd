@@ -25,12 +25,7 @@ func _physics_process(_delta):
 		velocity.y *= 0.3
 	if Input.is_action_pressed("move_down"):
 		velocity.y *= 0.3
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		if AL.keypickup:
-			$Inventory/Inventory/KeyCounter/Label.text = String(1)
-			AL.disspawn_key = true
-		
+
 	if (abs(velocity.x) > 50) or (abs(velocity.y) > 50):
 		$AnimationPlayer.play("run")
 	else:

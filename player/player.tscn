@@ -1556,13 +1556,13 @@ nodes/walk_animation/node = SubResource( 21 )
 nodes/walk_animation/position = Vector2( 0, 140 )
 nodes/walk_timescale/node = SubResource( 22 )
 nodes/walk_timescale/position = Vector2( 200, 120 )
-node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", "state", 3, "fly_animation", "state", 4, "fall_animation", "output", 0, "land_hard", "jump", 0, "state", "jump", 1, "jump_animation", "land_hard", 0, "land", "land_hard", 1, "land_hard_animation", "land", 0, "jump", "land", 1, "land_animation", "run_timescale", 0, "run_animation", "walk_timescale", 0, "walk_animation" ]
+node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", "state", 3, "fly_animation", "state", 4, "fall_animation", "output", 0, "land_hard", "land", 0, "jump", "land", 1, "land_animation", "jump", 0, "state", "jump", 1, "jump_animation", "land_hard", 0, "land", "land_hard", 1, "land_hard_animation", "run_timescale", 0, "run_animation", "walk_timescale", 0, "walk_animation" ]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 8, 4.7179 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 10, 24 )
+extents = Vector2( 15, 28.5 )
 
 [sub_resource type="CircleShape2D" id=25]
 radius = 62.0
@@ -1752,7 +1752,7 @@ polygons = [ PoolIntArray( 3, 2, 1, 0, 19, 18, 17, 4 ), PoolIntArray( 4, 5, 16, 
 bones = [ "Hip", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/RightArm", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/RightArm/RightForearm", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/RightArm/RightForearm/RightHand", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/Head", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/Head/Chin", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/LeftArm", PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1 ), "Hip/Chest/LeftArm/LeftForearm", PoolRealArray( 0, 0, 0, 0, 0, 0, 1, 1, 1, 0.5, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0 ), "Hip/Chest/LeftArm/LeftForearm/LeftHand", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0 ), "Hip/LeftLeg", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/LeftLeg/LeftLowerLeg", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/LeftLeg/LeftLowerLeg/LeftFoot", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/RightLeg", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/RightLeg/RightLowerLeg", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/RightLeg/RightLowerLeg/RightFoot", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 internal_vertex_count = 20
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="player" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -2.2821 )
 shape = SubResource( 24 )
 
@@ -1764,7 +1764,7 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="CheckForRock" type="Area2D" parent="." groups=["playercheck"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckForRock"]
-position = Vector2( 0, -23 )
+position = Vector2( 0, -22.5 )
 shape = SubResource( 26 )
 
 [node name="CheckForDoor" type="Area2D" parent="."]
