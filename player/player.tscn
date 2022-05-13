@@ -1556,16 +1556,16 @@ nodes/walk_animation/node = SubResource( 21 )
 nodes/walk_animation/position = Vector2( 0, 140 )
 nodes/walk_timescale/node = SubResource( 22 )
 nodes/walk_timescale/position = Vector2( 200, 120 )
-node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", "state", 3, "fly_animation", "state", 4, "fall_animation", "output", 0, "land_hard", "land", 0, "jump", "land", 1, "land_animation", "jump", 0, "state", "jump", 1, "jump_animation", "land_hard", 0, "land", "land_hard", 1, "land_hard_animation", "run_timescale", 0, "run_animation", "walk_timescale", 0, "walk_animation" ]
+node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", "state", 3, "fly_animation", "state", 4, "fall_animation", "output", 0, "land_hard", "jump", 0, "state", "jump", 1, "jump_animation", "land", 0, "jump", "land", 1, "land_animation", "land_hard", 0, "land", "land_hard", 1, "land_hard_animation", "run_timescale", 0, "run_animation", "walk_timescale", 0, "walk_animation" ]
 
 [sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 8, 4.7179 )
+extents = Vector2( 8, 4.5 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 15, 28.5 )
+extents = Vector2( 15, 27 )
 
 [sub_resource type="CircleShape2D" id=25]
-radius = 62.0
+radius = 55.0091
 
 [node name="SkeletalPlayer" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 1 )
@@ -1753,7 +1753,7 @@ bones = [ "Hip", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 internal_vertex_count = 20
 
 [node name="player" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -2.2821 )
+position = Vector2( 0, -2.75 )
 shape = SubResource( 24 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1764,7 +1764,7 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="CheckForRock" type="Area2D" parent="." groups=["playercheck"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckForRock"]
-position = Vector2( 0, -22.5 )
+position = Vector2( 0, -24 )
 shape = SubResource( 26 )
 
 [node name="CheckForDoor" type="Area2D" parent="."]
@@ -1775,5 +1775,7 @@ shape = SubResource( 25 )
 
 [connection signal="body_entered" from="CheckForRock" to="." method="_on_CheckForDoor_body_entered"]
 [connection signal="body_exited" from="CheckForRock" to="." method="_on_CheckForDoor_body_exited"]
+[connection signal="area_entered" from="CheckForDoor" to="." method="_on_CheckForDoor_area_entered"]
+[connection signal="area_exited" from="CheckForDoor" to="." method="_on_CheckForDoor_area_exited"]
 [connection signal="body_entered" from="CheckForDoor" to="." method="_on_CheckForDoor_body_entered"]
 [connection signal="body_exited" from="CheckForDoor" to="." method="_on_CheckForDoor_body_exited"]

@@ -36,8 +36,11 @@ func _physics_process(_delta):
 		sprite.transform.x = Vector2(sprite_scale, 0)
 	elif velocity.x < 0:
 		sprite.transform.x = Vector2(-sprite_scale, 0)
-	
 
+func add_stone(value):
+	AL.stone_count += value
+	var stone = get_tree().get_nodes_in_group("stone_counter")
+	stone[0].text = String(AL.stone_count)
 
 func _on_CheckForDoor_body_entered(body):
 	if body.is_in_group("exit"):
@@ -47,3 +50,13 @@ func _on_CheckForDoor_body_entered(body):
 func _on_CheckForDoor_body_exited(body):
 	if body.is_in_group("exit"):
 		AL.teleport_available = false
+
+
+func _on_CheckForDoor_area_entered(area):
+	if area.name == "PressurePlate":
+		area.set_process(true)
+
+
+func _on_CheckForDoor_area_exited(area):
+	if area.name == "PressurePlate":
+		area.set_process(false)
