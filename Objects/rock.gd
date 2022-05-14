@@ -13,7 +13,5 @@ func _on_Area2D_area_exited(area):
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("use_item"):
 		if in_area:
-			AL.stone_count += 1
-			var stone = get_tree().get_nodes_in_group("stone_counter")
-			stone[0].text = String(AL.stone_count)
+			AL.add_stones(1)
 			queue_free()

@@ -183,4 +183,4 @@ position = Vector2( 335, 128 )
 position = Vector2( 280, 303 )
 
 [node name="PressurePlate2" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 305, 303 )
+position = Vector2( 225, 164 )

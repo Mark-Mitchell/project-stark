@@ -37,26 +37,24 @@ func _physics_process(_delta):
 	elif velocity.x < 0:
 		sprite.transform.x = Vector2(-sprite_scale, 0)
 
-func add_stone(value):
-	AL.stone_count += value
-	var stone = get_tree().get_nodes_in_group("stone_counter")
-	stone[0].text = String(AL.stone_count)
-
+#Check if player is in range to get to the next level
 func _on_CheckForDoor_body_entered(body):
 	if body.is_in_group("exit"):
 		AL.teleport_available = true
-
-
 func _on_CheckForDoor_body_exited(body):
 	if body.is_in_group("exit"):
 		AL.teleport_available = false
 
-
+#Check if player is in range to activate pressureplate
 func _on_CheckForDoor_area_entered(area):
-	if area.name == "PressurePlate":
-		area.set_process(true)
-
-
+	var groups = area.get_groups()
+	for x in groups:
+		if x == "pressureplate":
+			area.set_process(true)
+			break
 func _on_CheckForDoor_area_exited(area):
-	if area.name == "PressurePlate":
-		area.set_process(false)
+	var groups = area.get_groups()
+	for x in groups:
+		if x == "pressureplate":
+			area.set_process(false)
+			break

@@ -9,6 +9,7 @@
 [node name="Inventory" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="KeyCounter" parent="Inventory" instance=ExtResource( 1 )]
 margin_left = 871.0
