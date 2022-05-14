@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 162.788
 
-[node name="Key" type="Sprite"]
+[node name="Key" type="Sprite" groups=["key"]]
 position = Vector2( 1, 0 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )

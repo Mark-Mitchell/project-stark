@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Pictures/TilemapEdit1.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Exit.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/rock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/PressurePlate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/ResetWall.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 15.1084, 0, 23.1837, 0, 23.1557, 32.8572, 15.0804, 32.6329 )
@@ -159,7 +160,7 @@ points = PoolVector2Array( 0, 19.4398, 15.4169, 19.3277, 15.4169, 0, 23.5482, 0,
 } ]
 0/z_index = 0
 
-[node name="Level1" type="TileMap"]
+[node name="Level1" type="TileMap" groups=["level"]]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -174,6 +175,9 @@ position = Vector2( 280, 267 )
 position = Vector2( 328, 187 )
 
 [node name="rock" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 214, 157 )
+
+[node name="rock2" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 335, 128 )
 
 [node name="PressurePlate" parent="YSort" instance=ExtResource( 6 )]
@@ -183,4 +187,8 @@ position = Vector2( 280, 303 )
 position = Vector2( 225, 164 )
 
 [node name="SkeletalPlayer" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 418, 172 )
+position = Vector2( 360, 157 )
+
+[node name="ResetWall" parent="." instance=ExtResource( 7 )]
+position = Vector2( 272, 221 )
+scale = Vector2( 2.5, 1 )

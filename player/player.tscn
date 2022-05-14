@@ -35,12 +35,12 @@ position = Vector2( 0, -25 )
 scale = Vector2( 0.025, 0.025 )
 
 [node name="leftArm" type="Sprite" parent="Character"]
-rotation = -0.0919312
+rotation = -0.0859915
 texture = ExtResource( 5 )
 
 [node name="beams" type="Sprite" parent="Character"]
-position = Vector2( 0, -27.5421 )
-rotation = 0.00409201
+position = Vector2( 0, -25.7626 )
+rotation = 0.00326379
 texture = ExtResource( 6 )
 
 [node name="body" type="Sprite" parent="Character"]
@@ -48,7 +48,7 @@ texture = ExtResource( 7 )
 
 [node name="rightArm" type="Sprite" parent="Character"]
 position = Vector2( -80, 0 )
-rotation = -0.109176
+rotation = -0.102122
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
