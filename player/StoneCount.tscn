@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Pictures/Themes/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Pictures/label_bg.png" type="Texture" id=2]
-[ext_resource path="res://Objects/rock_round.png" type="Texture" id=3]
+[ext_resource path="res://Pictures/rock_round.png" type="Texture" id=3]
 [ext_resource path="res://Pictures/Themes/alpha/alphbeta.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -30,7 +30,7 @@ margin_bottom = 28.0
 texture = ExtResource( 3 )
 expand = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." groups=["stone_counter"]]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -32.0
