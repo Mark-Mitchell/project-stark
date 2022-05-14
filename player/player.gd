@@ -8,9 +8,6 @@ onready var sprite = $Character
 onready var sprite_scale = sprite.scale.x
 onready var sprite_scaleY = sprite.scale.y
 
-func _ready():
-	$AnimationTree.active = true
-
 func _physics_process(_delta):
 	AL.playerpos = global_position
 	velocity = move_and_slide(velocity, Vector2.UP)
