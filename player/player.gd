@@ -4,7 +4,7 @@ extends KinematicBody2D
 var speed = Vector2(200.0, 200.0)
 var velocity = Vector2.ZERO
 
-onready var sprite = $Sprite
+onready var sprite = $Character
 onready var sprite_scale = sprite.scale.x
 onready var sprite_scaleY = sprite.scale.y
 
@@ -27,9 +27,11 @@ func _physics_process(_delta):
 		velocity.y *= 0.3
 
 	if (abs(velocity.x) > 50) or (abs(velocity.y) > 50):
-		$AnimationPlayer.play("run")
+#		$AnimationPlayer.play("run")
+		$AnimationPlayer.play("flying")
 	else:
-		$AnimationPlayer.play("idle")
+#		$AnimationPlayer.play("idle")
+		$AnimationPlayer.play("float")
 
 	# Calculate flipping and falling speed for animation purposes.
 	if velocity.x > 0:

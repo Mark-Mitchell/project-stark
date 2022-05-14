@@ -1,8 +1,14 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/gBot.png" type="Texture" id=2]
 [ext_resource path="res://player/Inventory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/images/left-arm.png" type="Texture" id=4]
+[ext_resource path="res://player/images/right arm.png" type="Texture" id=5]
+[ext_resource path="res://player/images/beams.png" type="Texture" id=6]
+[ext_resource path="res://player/images/body.png" type="Texture" id=7]
+[ext_resource path="res://player/animations/float.tres" type="Animation" id=8]
+[ext_resource path="res://player/animations/flying.tres" type="Animation" id=9]
 
 [sub_resource type="Animation" id=1]
 loop = true
@@ -1556,7 +1562,7 @@ nodes/walk_animation/node = SubResource( 21 )
 nodes/walk_animation/position = Vector2( 0, 140 )
 nodes/walk_timescale/node = SubResource( 22 )
 nodes/walk_timescale/position = Vector2( 200, 120 )
-node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", "state", 3, "fly_animation", "state", 4, "fall_animation", "output", 0, "land_hard", "jump", 0, "state", "jump", 1, "jump_animation", "land", 0, "jump", "land", 1, "land_animation", "land_hard", 0, "land", "land_hard", 1, "land_hard_animation", "run_timescale", 0, "run_animation", "walk_timescale", 0, "walk_animation" ]
+node_connections = [ "state", 1, "walk_timescale", "state", 2, "run_timescale", "state", 3, "fly_animation", "state", 4, "fall_animation", "output", 0, "land_hard", "land_hard", 0, "land", "land_hard", 1, "land_hard_animation", "land", 0, "jump", "land", 1, "land_animation", "run_timescale", 0, "run_animation", "jump", 0, "state", "jump", 1, "jump_animation", "walk_timescale", 0, "walk_animation" ]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 8, 4.5 )
@@ -1577,7 +1583,9 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fall = SubResource( 1 )
+anims/float = ExtResource( 8 )
 anims/fly = SubResource( 2 )
+anims/flying = ExtResource( 9 )
 anims/idle = SubResource( 3 )
 anims/jump = SubResource( 4 )
 anims/land = SubResource( 5 )
@@ -1595,11 +1603,33 @@ parameters/run_timescale/scale = 1.0
 parameters/state/current = 0
 parameters/walk_timescale/scale = 0.1
 
+[node name="Character" type="Sprite" parent="."]
+position = Vector2( 0, -0.436574 )
+scale = Vector2( 0.025, 0.025 )
+
+[node name="leftArm" type="Sprite" parent="Character"]
+rotation = 0.174533
+texture = ExtResource( 5 )
+
+[node name="beams" type="Sprite" parent="Character"]
+rotation = 0.261799
+texture = ExtResource( 6 )
+
+[node name="body" type="Sprite" parent="Character"]
+texture = ExtResource( 7 )
+
+[node name="rightArm" type="Sprite" parent="Character"]
+position = Vector2( -80, 0 )
+rotation = 0.174533
+texture = ExtResource( 4 )
+
 [node name="Sprite" type="Node2D" parent="."]
+visible = false
 position = Vector2( 0, -15 )
 scale = Vector2( 0.06, 0.06 )
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Sprite"]
+visible = false
 
 [node name="Hip" type="Bone2D" parent="Sprite/Skeleton2D"]
 position = Vector2( -3, -11 )
@@ -1607,26 +1637,28 @@ rest = Transform2D( 1, 0, 0, 1, -3, -11 )
 
 [node name="Chest" type="Bone2D" parent="Sprite/Skeleton2D/Hip"]
 position = Vector2( 0, -32 )
-rotation = -0.00646937
+rotation = -0.0855327
 rest = Transform2D( 1, 0, 0, 1, 0, -32 )
 
 [node name="Head" type="Bone2D" parent="Sprite/Skeleton2D/Hip/Chest"]
 position = Vector2( 0, -160 )
-rotation = 0.014197
+rotation = 0.287974
 rest = Transform2D( 1, 0, 0, 1, 0, -160 )
 
 [node name="Chin" type="Bone2D" parent="Sprite/Skeleton2D/Hip/Chest/Head"]
 position = Vector2( 0, -49 )
-rotation = 0.00169551
+rotation = -0.0435718
 rest = Transform2D( 0.999999, 0.00169551, -0.00169551, 0.999999, 0, -49 )
 default_length = 60.0
 
 [node name="RightArm" type="Bone2D" parent="Sprite/Skeleton2D/Hip/Chest"]
 position = Vector2( 80, -100 )
+rotation = -0.524992
 rest = Transform2D( 1, 0, 0, 1, 80, -100 )
 
 [node name="RightForearm" type="Bone2D" parent="Sprite/Skeleton2D/Hip/Chest/RightArm"]
 position = Vector2( -11, 97 )
+rotation = -0.0536324
 rest = Transform2D( 1, 0, 0, 1, -11, 97 )
 
 [node name="RightHand" type="Bone2D" parent="Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm"]
@@ -1637,6 +1669,7 @@ default_length = 60.0
 
 [node name="LeftArm" type="Bone2D" parent="Sprite/Skeleton2D/Hip/Chest"]
 position = Vector2( -100, -100 )
+rotation = 0.744076
 rest = Transform2D( 1, 0, 0, 1, -100, -100 )
 
 [node name="LeftForearm" type="Bone2D" parent="Sprite/Skeleton2D/Hip/Chest/LeftArm"]
@@ -1652,10 +1685,12 @@ default_length = 60.0
 
 [node name="LeftLeg" type="Bone2D" parent="Sprite/Skeleton2D/Hip"]
 position = Vector2( -72, 26 )
+rotation = 0.103216
 rest = Transform2D( 1, 0, 0, 1, -72, 26 )
 
 [node name="LeftLowerLeg" type="Bone2D" parent="Sprite/Skeleton2D/Hip/LeftLeg"]
 position = Vector2( -13, 91 )
+rotation = 0.613454
 rest = Transform2D( 1, 0, 0, 1, -13, 91 )
 
 [node name="LeftFoot" type="Bone2D" parent="Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg"]
@@ -1665,10 +1700,12 @@ default_length = 60.0
 
 [node name="RightLeg" type="Bone2D" parent="Sprite/Skeleton2D/Hip"]
 position = Vector2( 46, 11 )
+rotation = -0.755354
 rest = Transform2D( 1, 0, 0, 1, 46, 11 )
 
 [node name="RightLowerLeg" type="Bone2D" parent="Sprite/Skeleton2D/Hip/RightLeg"]
 position = Vector2( -26, 94 )
+rotation = 0.622049
 rest = Transform2D( 1, 0, 0, 1, -26, 94 )
 
 [node name="RightFoot" type="Bone2D" parent="Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg"]
@@ -1752,8 +1789,9 @@ polygons = [ PoolIntArray( 3, 2, 1, 0, 19, 18, 17, 4 ), PoolIntArray( 4, 5, 16, 
 bones = [ "Hip", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/RightArm", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/RightArm/RightForearm", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/RightArm/RightForearm/RightHand", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/Head", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/Head/Chin", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/Chest/LeftArm", PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1 ), "Hip/Chest/LeftArm/LeftForearm", PoolRealArray( 0, 0, 0, 0, 0, 0, 1, 1, 1, 0.5, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0 ), "Hip/Chest/LeftArm/LeftForearm/LeftHand", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0 ), "Hip/LeftLeg", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/LeftLeg/LeftLowerLeg", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/LeftLeg/LeftLowerLeg/LeftFoot", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/RightLeg", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/RightLeg/RightLowerLeg", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "Hip/RightLeg/RightLowerLeg/RightFoot", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 internal_vertex_count = 20
 
-[node name="player" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -2.75 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -2.2821 )
 shape = SubResource( 24 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1762,12 +1800,14 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="CheckForRock" type="Area2D" parent="." groups=["playercheck"]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckForRock"]
 position = Vector2( 0, -24 )
 shape = SubResource( 26 )
 
 [node name="CheckForDoor" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckForDoor"]
 position = Vector2( 0, -15 )
