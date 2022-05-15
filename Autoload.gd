@@ -11,6 +11,7 @@ var pressureplates = 0
 
 func change_to_next_level():
 	var levelpath = "res://Levels/Level" + String(next_level) + ".tscn"
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(levelpath)
 	next_level += 1
 

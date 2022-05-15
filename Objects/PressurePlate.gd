@@ -8,7 +8,7 @@ func _ready():
 	set_process(false)
 	AL.pressureplates = len(get_tree().get_nodes_in_group("pressureplate"))
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("use_item"):
 		if has_stone:
 			remove_stone()

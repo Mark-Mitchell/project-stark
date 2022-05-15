@@ -95,6 +95,7 @@ extents = Vector2( 15, 24 )
 radius = 55.0091
 
 [node name="SkeletalPlayer" type="KinematicBody2D" groups=["player"]]
+z_as_relative = false
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 379.019 ]

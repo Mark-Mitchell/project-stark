@@ -167,13 +167,13 @@ tile_data = PoolIntArray( 196618, 0, 0, 196619, 0, 1, 196620, 0, 1, 196621, 0, 1
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="rock" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 671, 385 )
-
-[node name="ResetWall" parent="YSort/rock" instance=ExtResource( 4 )]
-position = Vector2( -255, 1 )
+[node name="ResetWall" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 416, 386 )
 rotation = 1.5708
 scale = Vector2( 1.25, 4.25 )
+
+[node name="rock" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 671, 385 )
 
 [node name="rock2" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 437, 258 )

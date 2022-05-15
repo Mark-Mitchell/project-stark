@@ -6,8 +6,8 @@ var stone_positions = []
 var key_positions = []
 
 func _ready():
-	var stones = get_tree().get_nodes_in_group("stone")
-	var keys = get_tree().get_nodes_in_group("key")
+	stones = get_tree().get_nodes_in_group("stone")
+	keys = get_tree().get_nodes_in_group("key")
 	for x in stones:
 		stone_positions.push_back(x.position)
 	for x in keys:
@@ -20,7 +20,7 @@ func _on_ResetWall_body_entered(body):
 		var key = load("res://Objects/Key.tscn")
 		var rocks = get_tree().get_nodes_in_group("stone")
 		var new_rock_pos = []
-		var keys = get_tree().get_nodes_in_group("key")
+		keys = get_tree().get_nodes_in_group("key")
 		var new_key_pos = []
 		
 		#Respawn Rocks not collected yet
