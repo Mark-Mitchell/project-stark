@@ -8,26 +8,58 @@ onready var sprite = $Character
 onready var sprite_scale = sprite.scale.x
 onready var sprite_scaleY = sprite.scale.y
 
+# variables for dashing
+var dashing = false
+const dash_time = 0.2
+var curr_dash_time = 0
+var dashing_velocity_x = 0
+var dashing_velocity_y = 0
+
 func _physics_process(_delta):
 	AL.playerpos = global_position
 	velocity = move_and_slide(velocity, Vector2.UP)
-	velocity.x = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left")) * speed.x
-	velocity.y = (Input.get_action_strength("move_down") - Input.get_action_strength("move_up")) * speed.y
+	
+	if (dashing):
+		velocity.x = dashing_velocity_x
+		velocity.y = dashing_velocity_y
+	else:
+		velocity.x = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left")) * speed.x
+		velocity.y = (Input.get_action_strength("move_down") - Input.get_action_strength("move_up")) * speed.y
 
-	if Input.is_action_pressed("move_left"):
-		velocity.x *= 0.3
-	if Input.is_action_pressed("move_right"):
-		velocity.x *= 0.3
-	if Input.is_action_pressed("move_up"):
-		velocity.y *= 0.3
-	if Input.is_action_pressed("move_down"):
-		velocity.y *= 0.3
+	if (dashing):
+		curr_dash_time += _delta
+		# reset everything after dash time is reached
+		if curr_dash_time >= dash_time:
+			dashing = false
+			velocity.x = 0
+			velocity.y = 0
+			curr_dash_time = 0
+			$AnimationPlayer.play("float")
+		return
+	else:
+		if Input.is_action_just_pressed("dash"):
+			dashing = true
+			dashing_velocity_x = velocity.x * 3
+			dashing_velocity_y = velocity.y * 3
+			
+			# only animate the dash when the character was moving
+			if (dashing_velocity_x > 0) or (dashing_velocity_y > 0):
+				$AnimationPlayer.play("dashing")
+			return
+			
+			# moving controls
+		if Input.is_action_pressed("move_left"):
+			velocity.x *= 0.5
+		if Input.is_action_pressed("move_right"):
+			velocity.x *= 0.5
+		if Input.is_action_pressed("move_up"):
+			velocity.y *= 0.5
+		if Input.is_action_pressed("move_down"):
+			velocity.y *= 0.5
 
 	if (abs(velocity.x) > 50) or (abs(velocity.y) > 50):
-#		$AnimationPlayer.play("run")
 		$AnimationPlayer.play("flying")
 	else:
-#		$AnimationPlayer.play("idle")
 		$AnimationPlayer.play("float")
 
 	# Calculate flipping and falling speed for animation purposes.
