@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Pictures/TilemapEdit1.png" type="Texture" id=1]
 [ext_resource path="res://Objects/PressurePlate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Exit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/rock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/ResetWall.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 15.1084, 0, 23.1837, 0, 23.1557, 32.8572, 15.0804, 32.6329 )
@@ -158,22 +159,39 @@ points = PoolVector2Array( 0, 19.4398, 15.4169, 19.3277, 15.4169, 0, 23.5482, 0,
 } ]
 0/z_index = 0
 
-[node name="Level2" type="TileMap" groups=["level"]]
+[node name="Level6" type="TileMap" groups=["level"]]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 327687, 0, 0, 327688, 0, 1, 327689, 0, 2, 393222, 0, 0, 393223, 0, 131077, 393224, 0, 65537, 393225, 0, 131075, 393226, 0, 1, 393227, 0, 2, 458758, 0, 65536, 458759, 0, 65537, 458760, 0, 65537, 458761, 0, 65537, 458762, 0, 65537, 458763, 0, 131075, 458764, 0, 2, 524294, 0, 65536, 524295, 0, 65537, 524296, 0, 65537, 524297, 0, 65537, 524298, 0, 65537, 524299, 0, 65537, 524300, 0, 65538, 589829, 0, 0, 589830, 0, 131077, 589831, 0, 65537, 589832, 0, 65537, 589833, 0, 65537, 589834, 0, 65537, 589835, 0, 65537, 589836, 0, 131075, 589837, 0, 2, 655365, 0, 65536, 655366, 0, 65537, 655367, 0, 65537, 655368, 0, 65537, 655369, 0, 65537, 655370, 0, 65537, 655371, 0, 65537, 655372, 0, 65537, 655373, 0, 131075, 655374, 0, 2, 720901, 0, 65536, 720902, 0, 65537, 720903, 0, 65537, 720904, 0, 65537, 720905, 0, 65537, 720906, 0, 65537, 720907, 0, 65537, 720908, 0, 65537, 720909, 0, 65537, 720910, 0, 131075, 720911, 0, 2, 786437, 0, 131072, 786438, 0, 5, 786439, 0, 65537, 786440, 0, 65537, 786441, 0, 65537, 786442, 0, 65537, 786443, 0, 65537, 786444, 0, 65537, 786445, 0, 65537, 786446, 0, 65537, 786447, 0, 65538, 851974, 0, 131072, 851975, 0, 5, 851976, 0, 65537, 851977, 0, 65537, 851978, 0, 65537, 851979, 0, 65537, 851980, 0, 65537, 851981, 0, 65537, 851982, 0, 65537, 851983, 0, 65538, 917511, 0, 131072, 917512, 0, 131073, 917513, 0, 4, 917514, 0, 131073, 917515, 0, 4, 917516, 0, 4, 917517, 0, 4, 917518, 0, 4, 917519, 0, 131074 )
+tile_data = PoolIntArray( 65538, 0, 0, 65539, 0, 1, 65540, 0, 2, 131074, 0, 65536, 131075, 0, 65537, 131076, 0, 65538, 196610, 0, 65536, 196611, 0, 65537, 196612, 0, 131075, 196613, 0, 2, 262145, 0, 0, 262146, 0, 131077, 262147, 0, 65537, 262148, 0, 65537, 262149, 0, 131075, 262150, 0, 131076, 262151, 0, 2, 327681, 0, 65536, 327682, 0, 65537, 327683, 0, 3, 327684, 0, 4, 327685, 0, 5, 327686, 0, 65537, 327687, 0, 65538, 393216, 0, 0, 393217, 0, 131077, 393218, 0, 65537, 393219, 0, 65538, 393221, 0, 65536, 393222, 0, 3, 393223, 0, 131074, 458752, 0, 65536, 458753, 0, 65537, 458754, 0, 3, 458755, 0, 131074, 458757, 0, 131072, 458758, 0, 131074, 524288, 0, 65536, 524289, 0, 65537, 524290, 0, 65538, 655358, 0, 0, 655359, 0, 1, 589824, 0, 131077, 589825, 0, 65537, 589826, 0, 131075, 589827, 0, 2, 720894, 0, 65536, 720895, 0, 65537, 655360, 0, 65537, 655361, 0, 65537, 655362, 0, 65537, 655363, 0, 65538, 786430, 0, 65536, 786431, 0, 65537, 720896, 0, 65537, 720897, 0, 65537, 720898, 0, 65537, 720899, 0, 65538, 851966, 0, 65536, 851967, 0, 65537, 786432, 0, 65537, 786433, 0, 65537, 786434, 0, 65537, 786435, 0, 65538, 917502, 0, 65536, 917503, 0, 65537, 851968, 0, 65537, 851969, 0, 65537, 851970, 0, 65537, 851971, 0, 65538, 983038, 0, 131072, 983039, 0, 131073, 917504, 0, 131073, 917505, 0, 131073, 917506, 0, 131073, 917507, 0, 131074 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="PressurePlate" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 261, 296 )
-
 [node name="Exit" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 261, 267 )
+position = Vector2( 111, 85 )
+
+[node name="PressurePlate" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 31, 397 )
+
+[node name="PressurePlate2" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 68, 380 )
+
+[node name="ResetWall" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 32, 445 )
+scale = Vector2( 2, 2 )
+
+[node name="PressurePlate3" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -15, 377 )
+scale = Vector2( 1, 1.006 )
+
+[node name="PressurePlate4" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 71, 331 )
+
+[node name="PressurePlate5" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -12, 332 )
 
 [node name="rock" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( -14, -68 )
+position = Vector2( 29, 355 )
 
-[node name="SkeletalPlayer" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 364, 406 )
+[node name="SkeletalPlayer" parent="." instance=ExtResource( 4 )]
+position = Vector2( 211, 191 )

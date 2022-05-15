@@ -6,6 +6,7 @@ var moouse_here = false
 
 func _ready():
 	set_process(false)
+	AL.pressureplates = len(get_tree().get_nodes_in_group("pressureplate"))
 
 func _process(delta):
 	if Input.is_action_just_pressed("use_item"):
@@ -21,26 +22,27 @@ func apply_stone():
 		AL.add_stones(-1)
 		has_stone = true
 		triggered = true
-		AL.pressureplate_pressed = true
+		AL.pressureplate_pressed += 1 
 
 func remove_stone():
-	$Plate.modulate = Color(1,1,1,1)
-	$Rock.visible = false
-	AL.add_stones(1)
-	has_stone = false
-	triggered = false
-	AL.pressureplate_pressed = false
+	if moouse_here:
+		$Plate.modulate = Color(1,1,1,1)
+		$Rock.visible = false
+		AL.add_stones(1)
+		has_stone = false
+		triggered = false
+		AL.pressureplate_pressed -= 1
 
 func _on_PressurePlate_body_entered(body):
 	if body.name == "SkeletalPlayer" and not has_stone:
 		$Plate.modulate = Color(1,0,1,1)
-		AL.pressureplate_pressed = true
+		AL.pressureplate_pressed += 1
 
 
 func _on_PressurePlate_body_exited(body):
 	if body.name == "SkeletalPlayer" and not has_stone:
 		$Plate.modulate = Color(1,1,1,1)
-		AL.pressureplate_pressed = false
+		AL.pressureplate_pressed -= 1
 
 
 func _on_PressurePlate_mouse_entered():

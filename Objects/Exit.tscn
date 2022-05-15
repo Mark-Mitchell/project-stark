@@ -4,22 +4,24 @@
 [ext_resource path="res://Objects/Exit.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 4 )
+extents = Vector2( 24, 14 )
 
 [node name="Exit" type="StaticBody2D" groups=["exit"]]
+position = Vector2( 0, 6 )
 script = ExtResource( 2 )
 
 [node name="Door" type="Sprite" parent="."]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 10, 594, 49, 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
 [node name="Lock" type="Sprite" parent="."]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 202, 522, 12, 13 )

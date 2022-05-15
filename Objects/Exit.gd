@@ -15,7 +15,7 @@ func op_en():
 	fade_lock()
 
 func fade_lock():
-	if AL.teleport_available and AL.keycount > 0 or AL.teleport_available and AL.pressureplate_pressed:
+	if AL.teleport_available and AL.keycount > 0 or AL.teleport_available and AL.pressureplate_pressed == AL.pressureplates:
 		for x in range(1,6):
 			lock.set_modulate(lerp(get_modulate(), Color(1,1,1,0), 0.2*x))
 			$LockFadeOut.start()
