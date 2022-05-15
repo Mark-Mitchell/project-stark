@@ -15,12 +15,12 @@ position = Vector2( 0, 9 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2( 0, 9 )
 shape = SubResource( 1 )
 
 [node name="Rock" type="Sprite" parent="."]
 visible = false
-position = Vector2( -9.53674e-07, -9.53674e-07 )
+position = Vector2( -5.68434e-14, 7 )
 scale = Vector2( 0.370968, 0.370968 )
 texture = ExtResource( 2 )
 

@@ -5,7 +5,8 @@ var keycount = 0
 var stone_count = 0
 var next_level = 2
 var playerpos = Vector2.ZERO
-var pressureplate_pressed = false
+var pressureplate_pressed = 0
+var pressureplates = 0
 
 
 func change_to_next_level():
