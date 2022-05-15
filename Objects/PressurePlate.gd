@@ -2,7 +2,7 @@ extends Area2D
 
 var triggered = false
 var has_stone = false
-var moouse_here = false
+var mouse_here = false
 
 func _ready():
 	set_process(false)
@@ -16,7 +16,7 @@ func _process(delta):
 			apply_stone()
 
 func apply_stone():
-	if AL.stone_count > 0 and moouse_here:
+	if AL.stone_count > 0 and mouse_here:
 		$Plate.modulate = Color(1,0,1,1)
 		$Rock.visible = true
 		AL.add_stones(-1)
@@ -25,7 +25,7 @@ func apply_stone():
 		AL.pressureplate_pressed += 1 
 
 func remove_stone():
-	if moouse_here:
+	if mouse_here:
 		$Plate.modulate = Color(1,1,1,1)
 		$Rock.visible = false
 		AL.add_stones(1)
@@ -46,8 +46,8 @@ func _on_PressurePlate_body_exited(body):
 
 
 func _on_PressurePlate_mouse_entered():
-	moouse_here = true
+	mouse_here = true
 
 
 func _on_PressurePlate_mouse_exited():
-	moouse_here = false
+	mouse_here = false

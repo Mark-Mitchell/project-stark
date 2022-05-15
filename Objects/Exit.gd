@@ -8,7 +8,7 @@ func _ready():
 	Door.region_rect = Rect2(10,595,48,29)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("use_item"):
 		op_en()
 
 func op_en():

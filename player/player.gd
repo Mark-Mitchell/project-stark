@@ -62,11 +62,11 @@ func _physics_process(_delta):
 	else:
 		$AnimationPlayer.play("float")
 
-	# Calculate flipping and falling speed for animation purposes.
+	# Calculate flipping
 	if velocity.x > 0:
-		sprite.transform.x = Vector2(sprite_scale, 0)
+		sprite.set_scale(Vector2(0.025,0.025))
 	elif velocity.x < 0:
-		sprite.transform.x = Vector2(-sprite_scale, 0)
+		sprite.set_scale(Vector2(-0.025,0.025))
 
 #Check if player is in range to get to the next level
 func _on_CheckForDoor_body_entered(body):
