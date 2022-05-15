@@ -7,6 +7,7 @@ var mouse_here = false
 func _ready():
 	set_process(false)
 	AL.pressureplates = len(get_tree().get_nodes_in_group("pressureplate"))
+	AL.pressureplate_pressed = 0
 
 func _process(_delta):
 	if Input.is_action_just_pressed("use_item"):
